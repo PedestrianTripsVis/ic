@@ -1,0 +1,3 @@
+[submodule "cubu"]
+	path = cubu
+	url = https://github.com/urrameu/cubu
