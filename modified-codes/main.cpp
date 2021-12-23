@@ -19,7 +19,7 @@
 {                   \
    clock_t start, end; \
    start = clock();    \
-   call;            
+   call;           \  
    end = clock();    \
    std::cout << #call << " - " << (double)(end - start)/CLOCKS_PER_SEC << "s" << endl; \
 }
@@ -149,32 +149,30 @@ void PPMWriter(unsigned char *in,char *name,int dimx, int dimy)
 		printf("Error: cannot open file path=\'%s\'\n", name);
 		return;
 	}
+  	
+	(void) fprintf(fp, "P6 %d %d 255 ", dimx, dimy);
 
-  	(void) fprintf(fp, "P6 %d %d 255 ", dimx, dimy);
-  	for (int j = 0; j < dimy; ++j)
-  	{
-  	  for (int i = 0; i < dimx; ++i)
-  	  {
-  	    static unsigned char color[3];
-  	    color[0] = in[(i+j)*3];  /* red */
-  	    color[1] = in[(i+j)*3 + 1];  /* green */
-  	    color[2] = in[(i+j)*3 + 2];  /* blue */
-  	    (void) fwrite(color, 1, 3, fp);
-  	  }
-  	}
+	int totalpixels = dimx * dimy *4;
+	for (int i = 0; i < totalpixels; i += 4) {
+		static unsigned char color[3];
+		color[0] = in[i];
+		color[1] = in[i+1];
+		color[2] = in[i+2];
+		fwrite(color, 1, 3, fp);	
+	}
 
   	(void) fclose(fp);
 }
 
 void saveImage(int width, int height)
 {	
-    unsigned char* image = (unsigned char*)malloc(sizeof(unsigned char) * 3 * width * height);
+    unsigned char* image = (unsigned char*)malloc(sizeof(unsigned char) * 4 * width * height);
 
-    glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, image);
-
-	/* Saves screenshot with a timestamp*/
-	time_t timer = time(NULL);
-	struct tm *timeinfo = localtime(&timer);
+    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, image);
+   
+    /* Saves screenshot with a timestamp*/
+    time_t timer = time(NULL);
+    struct tm *timeinfo = localtime(&timer);
     char buffer[100];
     strftime(buffer, 100, "captures/screenshot-%F-%H-%M-%S.ppm", timeinfo);
 
