@@ -127,7 +127,7 @@ def process_data(YEAR, DATASETS_DIR, MY_DATASET):
 
 
 
-    REDUCTION_FACTOR = 10
+    REDUCTION_FACTOR = 55
 
     reduced_trips = trips.copy().loc[trips['FE_VIA'] >= REDUCTION_FACTOR]
     reduced_trips['FE_VIA'] = reduced_trips['FE_VIA'].div(REDUCTION_FACTOR).astype(int)
