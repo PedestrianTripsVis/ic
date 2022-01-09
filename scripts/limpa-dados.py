@@ -210,5 +210,5 @@ for area in areas:
     try:
         process_data(2017, 'data/walks-by-area/', f'{area}.csv')
     except:
-        print('MEU PAI ', area)
+        pass
 
