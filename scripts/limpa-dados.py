@@ -11,7 +11,7 @@ from dbfread import DBF #pip install dbfread
 from simpledbf import Dbf5 #pip install simpledbf
 
 # Local imports
-sys.path.append('/home/peach/ic')
+sys.path.append('/home/milenacsilva/Área de Trabalho/ic')
 import scripts.utils as utils
 
 def process_data(YEAR, DATASETS_DIR, MY_DATASET):
@@ -127,7 +127,7 @@ def process_data(YEAR, DATASETS_DIR, MY_DATASET):
 
 
 
-    REDUCTION_FACTOR = 55
+    REDUCTION_FACTOR = 10
 
     reduced_trips = trips.copy().loc[trips['FE_VIA'] >= REDUCTION_FACTOR]
     reduced_trips['FE_VIA'] = reduced_trips['FE_VIA'].div(REDUCTION_FACTOR).astype(int)
@@ -207,8 +207,5 @@ areas = [
 ]
 
 for area in areas:
-    try:
-        process_data(2017, 'data/walks-by-area/', f'{area}.csv')
-    except:
-        pass
+    process_data(2017, 'data/walks-by-area/', f'{area}.csv')
 
