@@ -127,7 +127,7 @@ def process_data(YEAR, DATASETS_DIR, MY_DATASET):
 
 
 
-    REDUCTION_FACTOR = 10
+    REDUCTION_FACTOR = 5
 
     reduced_trips = trips.copy().loc[trips['FE_VIA'] >= REDUCTION_FACTOR]
     reduced_trips['FE_VIA'] = reduced_trips['FE_VIA'].div(REDUCTION_FACTOR).astype(int)
@@ -195,15 +195,8 @@ def process_data(YEAR, DATASETS_DIR, MY_DATASET):
     utils.parse_to_cubu(expanded_trips.copy(), file_path, cubu_fields)
 
 areas = [
-    'SubCentral-AreaCentral',
-    'SubCentral-AreaNoroeste',
-    'SubCentral-AreaNorte',
-    'SubCentral-AreaNordeste',
-    'SubCentral-AreaLeste',
-    'SubCentral-AreaSudeste',
-    'SubCentral-AreaSul',
-    'SubCentral-AreaSudoeste',
-    'SubCentral-AreaOeste' 
+    'Se-Distrito',
+    'Se-SubPrefeitura'
 ]
 
 for area in areas:
