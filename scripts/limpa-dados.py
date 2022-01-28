@@ -195,14 +195,14 @@ def process_data(YEAR, DATASETS_DIR, MY_DATASET):
     utils.parse_to_cubu(expanded_trips.copy(), file_path, cubu_fields)
 
 areas = [
-    'SãoPaulo-Centro',
-    'SãoPaulo-Oeste',
-    'SãoPaulo-Sul1',
-    'SãoPaulo-Sul2',
-    'SãoPaulo-Norte1',
-    'SãoPaulo-Norte2',
-    'SãoPaulo-Leste1',
-    'SãoPaulo-Leste2'
+    'Centro',   
+    'Oeste',
+    'Sul1',
+    'Sul2',
+    'Norte1',
+    'Norte2',
+    'Leste1',
+    'Leste2'
 ]
 
 for area in areas:
