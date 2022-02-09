@@ -176,7 +176,7 @@ void saveImage(int width, int height)
     char buffer[100];
     strftime(buffer, 100, "captures/screenshot-%F-%H-%M-%S.ppm", timeinfo);
 
-    PPMWriter(image, buffer, width, height);
+    PPMWriter(image, bffer, width, height);
 	free(image);
 }
 
