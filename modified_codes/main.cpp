@@ -1,6 +1,7 @@
 #include <GL/glew.h>
 
 #include "include/cpubundling.h"
+#include "include/pngdrawing.h"
 #include "include/gdrawing.h"
 #include "include/glutwrapper.h"
 #include "include/gluiwrapper.h"
@@ -11,15 +12,13 @@
 #include <iostream>
 #include <string>
 #include <time.h>
-#include <assert.h>
-
 #define DBG(x) std::cout << #x << ": " <<  x << endl
 
 #define TIME(call)   \
 {                   \
    clock_t start, end; \
    start = clock();    \
-   call;           \  
+   call;            \
    end = clock();    \
    std::cout << #call << " - " << (double)(end - start)/CLOCKS_PER_SEC << "s" << endl; \
 }
@@ -64,7 +63,8 @@ static int			shading_tube = 0;                                                  
 static float		dir_separation = 0;                                                 //Separate different-direction bundles in the 'tracks' style or not
 static int			draw_background = 1;                                                //Draw background image under graph or not
 static int			draw_rails = 0;                                                //Draw background image under graph or not
-static int      print_screen = 0;
+static int 			draw_png = 0;
+static int      	print_screen = 0;
 static const char*  save_filename = "CUBu_bundling.trl";                                //Name of text-file where to save bundling result
 static float obj_pos[] = { 0.0, 0.0, 0.0 };
 
@@ -115,6 +115,7 @@ enum
 		UI_BUNDLE_SHADING_SPECULAR_SIZE,
 		UI_BUNDLE_BACK_IMAGE,
 		UI_BUNDLE_RAILS_IMAGE,
+		UI_BUNDLE_BASEMAP_IMAGE,
         UI_SAMPLE,
         UI_BUNDLE,
         UI_COPY_DRAWING_TO_ORIG,
@@ -151,14 +152,15 @@ void PPMWriter(unsigned char *in,char *name,int dimx, int dimy)
 	}
   	
 	(void) fprintf(fp, "P6 %d %d 255 ", dimx, dimy);
-
-	int totalpixels = dimx * dimy *4;
-	for (int i = 0; i < totalpixels; i += 4) {
-		static unsigned char color[3];
-		color[0] = in[i];
-		color[1] = in[i+1];
-		color[2] = in[i+2];
-		fwrite(color, 1, 3, fp);	
+	printf("screenshot res: %d %d\n", dimx, dimy);	
+	for (int i = (dimy*dimx - dimx)*3; i >= 0; i -= (dimx*3)) {
+		for (int j = 0; j < (dimx * 3); j += 3) {
+			static unsigned char color[3];
+    		color[0] = in[i+j];
+    		color[1] = in[i+j+1];
+    		color[2] = in[i+j+2];
+    		fwrite(color, 1, 3, fp);  
+		}	
 	}
 
   	(void) fclose(fp);
@@ -166,9 +168,10 @@ void PPMWriter(unsigned char *in,char *name,int dimx, int dimy)
 
 void saveImage(int width, int height)
 {	
-    unsigned char* image = (unsigned char*)malloc(sizeof(unsigned char) * 4 * width * height);
-
-    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, image);
+    unsigned char* image = (unsigned char*)malloc(sizeof(unsigned char) * 3 * width * height);
+	
+	glPixelStorei(GL_PACK_ALIGNMENT, 1);
+    glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, image);
    
     /* Saves screenshot with a timestamp*/
     time_t timer = time(NULL);
@@ -176,15 +179,15 @@ void saveImage(int width, int height)
     char buffer[100];
     strftime(buffer, 100, "captures/screenshot-%F-%H-%M-%S.ppm", timeinfo);
 
-    PPMWriter(image, bffer, width, height);
+    PPMWriter(image, buffer, width, height);
 	free(image);
 }
-
 
 int main(int argc,char **argv)
 {
 	char* graphfile = 0;
-  char* mapfile = 0;
+  	char* mapfile = 0;
+	char* basemapfile = 0;
 	fboSize   = 512;
 	bool only_endpoints = false;
 	int  max_edges = 0;
@@ -211,11 +214,15 @@ int main(int argc,char **argv)
 			++ar;
 			max_edges = atoi(argv[ar]);
 		}
-    else if(opt=="-m")
-    {
-      ++ar;
-      mapfile = argv[ar];
-    }
+    	else if(opt=="-m")
+    	{
+     		++ar;
+      		mapfile = argv[ar];
+    	}
+		else if(opt=="-bm") {
+			++ar;
+			basemapfile = argv[ar];
+		}
 
 	}
 
@@ -239,9 +246,10 @@ int main(int argc,char **argv)
 		exit(1);
 	}
 
-  ok = gdrawing_orig->readBackgroundMap(mapfile, fboSize, border); // read shapefile background and points will fit to it
+  	ok = gdrawing_orig->readBackgroundMap(mapfile, fboSize, border); // read shapefile background and points will fit to it
+	// ok = gdrawing_orig->readBackgroundMap(mapfile, basemapfile, fboSize, border);
 
-	if (!ok)
+	if (!ok && false)
 	{
 		printf("Error: cannot open map file '%s'\n", mapfile);
 		exit(1);
@@ -341,6 +349,8 @@ void display_cb()
 
     glMatrixMode(GL_MODELVIEW);										//Setup modelview matrix
     glLoadIdentity();
+
+    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
     TIME(gdrawing_final->draw());											//Draw the final graph
 
@@ -483,6 +493,8 @@ void control_cb(int ctrl)
 	case UI_BUNDLE_RAILS_IMAGE:
 		gdrawing_bund->draw_rails = gdrawing_orig->draw_rails = draw_rails;
 		break;
+	case UI_BUNDLE_BASEMAP_IMAGE:
+		gdrawing_bund->draw_png = gdrawing_orig->draw_png = draw_png;
     case UI_BUNDLE_AUTO_UPDATE:
         if (auto_update) bundle();
         break;
@@ -657,6 +669,8 @@ void buildGUI(int mainWin)
 	new GLUI_Checkbox(pan,"End points", &show_endpoints,UI_BUNDLE_SHOW_ENDPOINTS,control_cb);
     new GLUI_Checkbox(pan,"Background image",&draw_background,UI_BUNDLE_BACK_IMAGE,control_cb);
     new GLUI_Checkbox(pan,"Rails Lines",&draw_rails,UI_BUNDLE_RAILS_IMAGE,control_cb);
+    new GLUI_Checkbox(pan,"Basemap image",&draw_png, UI_BUNDLE_BASEMAP_IMAGE, control_cb);
+
 
 	pan = glui->add_panel_to_panel(ui_drawing,"",GLUI_PANEL_NONE);
 	o1  = new GLUI_StaticText(pan,"Line width");
