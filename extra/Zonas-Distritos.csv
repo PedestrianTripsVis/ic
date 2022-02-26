@@ -1,0 +1,518 @@
+n_zona,nome_zona,n_distrito,nome_distrito
+1,Sé,80,Sé
+2,Parque Dom Pedro,80,Sé
+3,Praça João Mendes,80,Sé
+4,Ladeira da Memória,67,República
+5,República,67,República
+6,Santa Ifigênia,67,República
+7,Luz,9,Bom Retiro
+8,Bom Retiro,9,Bom Retiro
+9,Ponte Pequena,9,Bom Retiro
+10,Canindé,57,Pari
+11,Bom Jardim,57,Pari
+12,Pari,57,Pari
+13,João Teodoro,10,Brás
+14,Oriente,10,Brás
+15,Bresser,10,Brás
+16,Brás,10,Brás
+17,Gasômetro,10,Brás
+18,Independência,14,Cambuci
+19,Cambuci,14,Cambuci
+20,Glicério,49,Liberdade
+21,Aclimação,49,Liberdade
+22,Pires da Mota,49,Liberdade
+23,Centro Cultural,49,Liberdade
+24,Liberdade,49,Liberdade
+25,Treze de Maio,7,Bela Vista
+26,Bexiga,7,Bela Vista
+27,Bela Vista,7,Bela Vista
+28,São Carlos do Pinhal,7,Bela Vista
+29,Masp,7,Bela Vista
+30,Higienópolis,26,Consolação
+31,Vila Buarque,26,Consolação
+32,Consolação,26,Consolação
+33,Pacaembu,26,Consolação
+34,FAAP,26,Consolação
+35,Santa Cecília,70,Santa Cecília
+36,Marechal Deodoro,70,Santa Cecília
+37,Rudge,70,Santa Cecília
+38,Catumbi,8,Belém
+39,Belém,8,Belém
+40,Quarta Parada,8,Belém
+41,Belenzinho,8,Belém
+42,Celso Garcia,8,Belém
+43,Mooca,54,Mooca
+44,Alto da Mooca,54,Mooca
+45,Parque da Mooca,54,Mooca
+46,Água Rasa,1,Água Rasa
+47,Vila Bertioga,1,Água Rasa
+48,Regente Feijó,1,Água Rasa
+49,Ana Rosa,92,Vila Mariana
+50,Jardim da Glória,92,Vila Mariana
+51,Chácara Klabin,92,Vila Mariana
+52,Vila Mariana,92,Vila Mariana
+53,Santa Cruz,92,Vila Mariana
+54,Vila Clementino,92,Vila Mariana
+55,França Pinto,92,Vila Mariana
+56,Rodrigues Alves,92,Vila Mariana
+57,Paraíso,92,Vila Mariana
+58,Bosque da Saúde,79,Saúde
+59,Saúde,79,Saúde
+60,Planalto Paulista,79,Saúde
+61,Mirandópolis,79,Saúde
+62,Parque Ibirapuera,53,Moema
+63,Jardim Luzitânia,53,Moema
+64,Moema,53,Moema
+65,Vila Helena,53,Moema
+66,Bandeirantes,53,Moema
+67,Vila Nova Conceição,53,Moema
+68,Chácara Itaim,34,Itaim Bibi
+69,Vila Olímpia,34,Itaim Bibi
+70,Hélio Pelegrino,34,Itaim Bibi
+71,Brooklin,34,Itaim Bibi
+72,Vila Cordeiro,34,Itaim Bibi
+73,Berrini,34,Itaim Bibi
+74,Campinas,44,Jardim Paulista
+75,Pamplona,44,Jardim Paulista
+76,Jardins,44,Jardim Paulista
+77,Clínicas,44,Jardim Paulista
+78,Oscar Freire,44,Jardim Paulista
+79,Trianon,44,Jardim Paulista
+80,Jardim Paulistano,63,Pinheiros
+81,Jardim Europa,63,Pinheiros
+82,Pinheiros,63,Pinheiros
+83,Vila Madalena,63,Pinheiros
+84,PUC,61,Perdizes
+85,Cardoso de Almeida,61,Perdizes
+86,Zequinha de Abreu,61,Perdizes
+87,Sumaré,61,Perdizes
+88,Perdizes,61,Perdizes
+89,Vila Anglo Brasileira,61,Perdizes
+90,Pompéia,61,Perdizes
+91,Santa Marina,6,Barra Funda
+92,Barra Funda,6,Barra Funda
+93,Francisco Matarazzo,6,Barra Funda
+94,Água Branca,6,Barra Funda
+95,Vila Beatriz,2,Alto de Pinheiros
+96,Alto de Pinheiros,2,Alto de Pinheiros
+97,Boaçava,2,Alto de Pinheiros
+98,Vila Anastácio,48,Lapa
+99,Lapa de Baixo,48,Lapa
+100,Lapa,48,Lapa
+101,Vila Ipojuca,48,Lapa
+102,Alto da Lapa,48,Lapa
+103,Gavião Peixoto,48,Lapa
+104,Bela Aliança,90,Vila Leopoldina
+105,Vila Hamburguesa,90,Vila Leopoldina
+106,CEASA,90,Vila Leopoldina
+107,Vila Leopoldina,90,Vila Leopoldina
+108,Emissário,90,Vila Leopoldina
+109,Vila Zatt,64,Pirituba
+110,Pirituba,64,Pirituba
+111,São Domingos,73,São Domingos
+112,Jardim Mutinga,73,São Domingos
+113,Vila Jaguara,39,Jaguara
+114,Parque do Jaraguá,41,Jaraguá
+115,Nova Jaraguá,41,Jaraguá
+116,Parada de Taipas,41,Jaraguá
+117,Parque Morro Doce,3,Anhanguera
+118,Anhanguera,3,Anhanguera
+119,Perus,62,Perus
+120,Vista Alegre,11,Brasilândia
+121,Jardim Damasceno,11,Brasilândia
+122,Vila Souza,11,Brasilândia
+123,Vila Terezinha,11,Brasilândia
+124,Brasilândia,11,Brasilândia
+125,Vila Morro Grande,29,Freguesia do Ó
+126,Itaberaba,29,Freguesia do Ó
+127,Freguesia do Ó,29,Freguesia do Ó
+128,Carandiru,71,Santana
+129,Santana,71,Santana
+130,Zaki Narchi,71,Santana
+131,Tietê,71,Santana
+132,Parque Anhembi,71,Santana
+133,Alfredo Pujol,71,Santana
+134,Santa Terezinha,71,Santana
+135,Jardim São Paulo,71,Santana
+136,Casa Verde,21,Casa Verde
+137,Parque Peruche,21,Casa Verde
+138,Limão,50,Limão
+139,Jardim Primavera,50,Limão
+140,Vila Santa Maria,50,Limão
+141,Cachoeirinha,13,Cachoeirinha
+142,Jardim Peri,13,Cachoeirinha
+143,Reserva da Cantareira,13,Cachoeirinha
+144,Mandaqui,51,Mandaqui
+145,Horto Florestal,51,Mandaqui
+146,ETA Guaraú,51,Mandaqui
+147,Parque Palmas do Tremembé,83,Tremembé
+148,Tremembé,83,Tremembé
+149,Cantareira,83,Tremembé
+150,Jardim das Pedras,83,Tremembé
+151,Jardim Guapira,83,Tremembé
+152,Parada Inglesa,84,Tucuruvi
+153,Tucuruvi,84,Tucuruvi
+154,Vila Gustavo,84,Tucuruvi
+155,Cohab Jova Real,38,Jaçanã
+156,Jaçanã,38,Jaçanã
+157,Parque Edu Chaves,38,Jaçanã
+158,Vila Medeiros,94,Vila Medeiros
+159,Jardim Brasil,94,Vila Medeiros
+160,Jardim Japão,91,Vila Maria
+161,Parque Novo Mundo,91,Vila Maria
+162,Vila Maria,91,Vila Maria
+163,Vila Isolina Mazzei,88,Vila Guilherme
+164,Vila Guilherme,88,Vila Guilherme
+165,Coroa,88,Vila Guilherme
+166,Gomes Cardim,82,Tatuapé
+167,Tatuapé,82,Tatuapé
+168,Chácara do Piqueri,82,Tatuapé
+169,Parque São Jorge,82,Tatuapé
+170,Penha,60,Penha
+171,Tiquatira,60,Penha
+172,Vila Esperança,60,Penha
+173,Vila Ré,60,Penha
+174,Rui Barbosa,18,Cangaíba
+175,Estação Eng. Goulart,18,Cangaíba
+176,Cangaíba,18,Cangaíba
+177,Parque Ecológico do Tietê,18,Cangaíba
+178,USP Leste I,18,Cangaíba
+179,USP Leste II,28,Ermelino Matarazzo
+180,Ermelino Matarazzo,28,Ermelino Matarazzo
+181,Parque Buturussu,28,Ermelino Matarazzo
+182,Ponte Rasa,65,Ponte Rasa
+183,Burgo Paulista,65,Ponte Rasa
+184,Limoeiro,89,Vila Jacuí
+185,Laranja da China,89,Vila Jacuí
+186,Pedro José Nunes,89,Vila Jacuí
+187,Parque Cruzeiro do Sul,89,Vila Jacuí
+188,Vila Jacuí,89,Vila Jacuí
+189,Parada XV,36,Itaquera
+190,Itaquera,36,Itaquera
+191,Arena Corinthians,36,Itaquera
+192,Vila Campanela,36,Itaquera
+193,Araucárias,36,Itaquera
+194,Parque Guarani,36,Itaquera
+195,Rio Verde,36,Itaquera
+196,Saudade,76,São Miguel
+197,São Miguel Paulista,76,São Miguel
+198,Cidade Nitro-Operária,76,São Miguel
+199,Jardim Helena,43,Jardim Helena
+200,Jardim Romano,43,Jardim Helena
+201,Vila Curuçá,86,Vila Curuçá
+202,Jardim Robru,86,Vila Curuçá
+203,Lageado,47,Lajeado
+204,Fábrica Bandeirantes,47,Lajeado
+205,Fazenda Itaim,35,Itaim Paulista
+206,Itaim Paulista,35,Itaim Paulista
+207,Jardim das Oliveiras,35,Itaim Paulista
+208,Vila Califórnia,20,Carrão
+209,Vila Carrão,20,Carrão
+210,Jardim Anália Franco,87,Vila Formosa
+211,Vila Formosa,87,Vila Formosa
+212,Barreira Grande,4,Aricanduva
+213,Aricanduva,4,Aricanduva
+214,Frei Mont'Alverne,93,Vila Matilde
+215,Vila Matilde,93,Vila Matilde
+216,Cidade Patriarca,93,Vila Matilde
+217,Cidade A.E.Carvalho,5,Artur Alvim
+218,Artur Alvim,5,Artur Alvim
+219,Cidade Líder,24,Cidade Líder
+220,Santa Marcelina,24,Cidade Líder
+221,Parque Savoy,24,Cidade Líder
+222,Vila Carmosina,58,Parque do Carmo
+223,Fazenda Caguaçu,58,Parque do Carmo
+224,Parque do Carmo,58,Parque do Carmo
+225,Gleba do Pêssego,46,José Bonifácio
+226,José Bonifácio,46,José Bonifácio
+227,Guaianases,31,Guaianases
+228,Juscelino Kubitschek,31,Guaianases
+229,Cidade Tiradentes,25,Cidade Tiradentes
+230,Santa Etelvina,25,Cidade Tiradentes
+231,Terceira Divisão,32,Iguatemi
+232,Iguatemi,32,Iguatemi
+233,Sítio Carrãozinho,32,Iguatemi
+234,Parque São Rafael,77,São Rafael
+235,Rodolfo Pirani,77,São Rafael
+236,Ipiranga,33,Ipiranga
+237,Sacomã,33,Ipiranga
+238,Alto do Ipiranga,33,Ipiranga
+239,Vila São José,33,Ipiranga
+240,Vila Monumento,33,Ipiranga
+241,Vila Independência,33,Ipiranga
+242,Vila Carioca,33,Ipiranga
+243,Moinho Velho,69,Sacomã
+244,Vila Heliópolis,69,Sacomã
+245,São João Clímaco,69,Sacomã
+246,Anchieta,69,Sacomã
+247,Vila das Mercês,69,Sacomã
+248,Parque do Estado,27,Cursino
+249,Água Funda,27,Cursino
+250,Jardim da Saúde,27,Cursino
+251,Vila Gumercindo,27,Cursino
+252,Jardim Previdência,27,Cursino
+253,Tamanduateí,95,Vila Prudente
+254,Orfanato,95,Vila Prudente
+255,Vila Zelina,95,Vila Prudente
+256,Linhas Corrente,74,São Lucas
+257,Vila Ema,74,São Lucas
+258,Parque São Lucas,74,São Lucas
+259,Vila Cardoso Franco,78,Sapopemba
+260,Parque Santa Madalena,78,Sapopemba
+261,Jardim Colorado,78,Sapopemba
+262,Teotônio Vilela,78,Sapopemba
+263,Fazenda da Juta,78,Sapopemba
+264,São Mateus,75,São Mateus
+265,Cidade IV Centenário,75,São Mateus
+266,Rio Claro,75,São Mateus
+267,Cidade Satélite,75,São Mateus
+268,Joaquim Nabuco,15,Campo Belo
+269,Vieira de Moraes,15,Campo Belo
+270,Campo Belo,15,Campo Belo
+271,Congonhas,15,Campo Belo
+272,Jardim Aeroporto,15,Campo Belo
+273,Vila Santa Catarina,37,Jabaquara
+274,Jabaquara,37,Jabaquara
+275,Cidade Vargas,37,Jabaquara
+276,Jardim Bom Clima,37,Jabaquara
+277,Cupecê,22,Cidade Ademar
+278,Jardim Miriam,22,Cidade Ademar
+279,Vila Missionária,22,Cidade Ademar
+280,Jurubatuba,16,Campo Grande
+281,Vila São Pedro,16,Campo Grande
+282,Campo Grande,16,Campo Grande
+283,Vila Sabará,16,Campo Grande
+284,Mar Paulista,59,Pedreira
+285,Pedreira,59,Pedreira
+286,Vila Socorro,81,Socorro
+287,Parque Interlagos,81,Socorro
+288,Jardim Represa,23,Cidade Dutra
+289,Rio Bonito,23,Cidade Dutra
+290,SESC Interlagos,23,Cidade Dutra
+291,Jardim Presidente,23,Cidade Dutra
+292,Vila Natal,30,Grajaú
+293,Grajaú,30,Grajaú
+294,Cocaia,30,Grajaú
+295,Belmira Marin,30,Grajaú
+296,Bororé,30,Grajaú
+297,Jaceguava,56,Parelheiros
+298,Parelheiros,56,Parelheiros
+299,Marsilac,52,Marsilac
+300,Granja Julieta,72,Santo Amaro
+301,Chácara Flora,72,Santo Amaro
+302,Santo Amaro,72,Santo Amaro
+303,Vila Miranda,72,Santo Amaro
+304,Jardim São Luís,45,Jardim São Luís
+305,Centro Empresarial,45,Jardim São Luís
+306,Guarapiranga,45,Jardim São Luís
+307,Jardim Capela,42,Jardim Ângela
+308,Riviera,42,Jardim Ângela
+309,Jardim Turquesa,42,Jardim Ângela
+310,Morro do Índio,42,Jardim Ângela
+311,Jardim Ângela,42,Jardim Ângela
+312,Capão Redondo,19,Capão Redondo
+313,Jardim Sônia Ingá,19,Capão Redondo
+314,Adventista,19,Capão Redondo
+315,Parque Fernanda,19,Capão Redondo
+316,Morumbi,55,Morumbi
+317,Jóquei Clube,55,Morumbi
+318,Fazenda Morumbi,55,Morumbi
+319,Real Parque,55,Morumbi
+320,Paraisópolis,85,Vila Andrade
+321,Jardim Vitória Régia,85,Vila Andrade
+322,Vila Suzana,85,Vila Andrade
+323,Parque Arariba,17,Campo Limpo
+324,Jardim Mitsutani,17,Campo Limpo
+325,Pirajussara,17,Campo Limpo
+326,Jardim Umarizal,17,Campo Limpo
+327,Portal do Morumbi,96,Vila Sônia
+328,Jardim Jussara,96,Vila Sônia
+329,Vila Sônia,96,Vila Sônia
+330,Jardim Maria do Carmo,96,Vila Sônia
+331,Jardim Cambará,66,Raposo Tavares
+332,Jardim João XXIII,66,Raposo Tavares
+333,Raposo Tavares,66,Raposo Tavares
+334,Rio Pequeno,68,Rio Pequeno
+335,Jardim Ester Yolanda,68,Rio Pequeno
+336,Jardim Adalgiza,68,Rio Pequeno
+337,Parque Continental,40,Jaguaré
+338,Jaguaré,40,Jaguaré
+339,Cidade Universitária,12,Butantã
+340,Butantã,12,Butantã
+341,Jardim Caxingui,12,Butantã
+342,Jardim Bonfiglioli,12,Butantã
+343,Melhoramentos,100,Caieiras
+344,Caieiras,100,Caieiras
+345,Serpa,100,Caieiras
+346,Santa Inês,100,Caieiras
+347,Cajamar,101,Cajamar
+348,Jordanésia,101,Cajamar
+349,Cristais,109,Franco da Rocha
+350,Baltazar Fidélis,109,Franco da Rocha
+351,Franco da Rocha,109,Franco da Rocha
+352,Parque do Juqueri,109,Franco da Rocha
+353,Palmares,109,Franco da Rocha
+354,Sete Voltas,108,Francisco Morato
+355,Afonso Moreno,108,Francisco Morato
+356,Francisco Morato,108,Francisco Morato
+357,Cascatas,108,Francisco Morato
+358,Mairiporã,117,Mairiporã
+359,Paiva Castro,117,Mairiporã
+360,Colinas,117,Mairiporã
+361,Pirucaia,117,Mairiporã
+362,Guarulhos,111,Guarulhos
+363,Macedo,111,Guarulhos
+364,Cumbica,111,Guarulhos
+365,Várzea do Palácio,111,Guarulhos
+366,Ponte Grande,111,Guarulhos
+367,Gopouva,111,Guarulhos
+368,Vila São Rafael,111,Guarulhos
+369,Vila Rosália,111,Guarulhos
+370,André Luiz,111,Guarulhos
+371,Jardim Santa Clara,111,Guarulhos
+372,Parque CECAP,111,Guarulhos
+373,Taboão,111,Guarulhos
+374,Aeroporto,111,Guarulhos
+375,Jardim Presidente Dutra,111,Guarulhos
+376,Baquirivu,111,Guarulhos
+377,Água Chata,111,Guarulhos
+378,Pimentas,111,Guarulhos
+379,Cabuçu,111,Guarulhos
+380,Invernada,111,Guarulhos
+381,Morro dos Macacos,111,Guarulhos
+382,Chácaras Bananal,111,Guarulhos
+383,Estrada de Nazaré Paulista,111,Guarulhos
+384,Água Azul,111,Guarulhos
+385,Vasconcelândia,111,Guarulhos
+386,Arujazinho,97,Arujá
+387,Arujá,97,Arujá
+388,Fazenda Velha,97,Arujá
+389,Santa Isabel,126,Santa Isabel
+390,Jaguari,126,Santa Isabel
+391,Ferraz de Vasconcelos,107,Ferraz de Vasconcelos
+392,Paiol Velho,107,Ferraz de Vasconcelos
+393,Santos Dumont,107,Ferraz de Vasconcelos
+394,Jardim São José,122,Poá
+395,Poá,122,Poá
+396,Itaquaquecetuba,114,Itaquaquecetuba
+397,Quinta da Boa Vista,114,Itaquaquecetuba
+398,Bonsucesso,114,Itaquaquecetuba
+399,Pinheirinho,114,Itaquaquecetuba
+400,Miguel Badra,132,Suzano
+401,Suzano,132,Suzano
+402,Guaió,132,Suzano
+403,Ouro Fino,132,Suzano
+404,Mogi das Cruzes,119,Mogi das Cruzes
+405,Estudantes,119,Mogi das Cruzes
+406,Vila Oliveira,119,Mogi das Cruzes
+407,Brás Cubas,119,Mogi das Cruzes
+408,Jundiapeba,119,Mogi das Cruzes
+409,Jardim Graziella,119,Mogi das Cruzes
+410,Itapeti,119,Mogi das Cruzes
+411,Sabaúna,119,Mogi das Cruzes
+412,César de Souza,119,Mogi das Cruzes
+413,Taiaçupeba,119,Mogi das Cruzes
+414,Biritiba-Mirim,99,Biritiba-Mirim
+415,Salesópolis,125,Salesópolis
+416,Guararema,110,Guararema
+417,Santa Paula,130,São Caetano do Sul
+418,Vila Gerti,130,São Caetano do Sul
+419,Estrada das Lágrimas,130,São Caetano do Sul
+420,Santo Antônio,130,São Caetano do Sul
+421,São Caetano do Sul,130,São Caetano do Sul
+422,Santo André,128,Santo André
+423,Vila Gilda,128,Santo André
+424,Valparaíso,128,Santo André
+425,Sacadura Cabral,128,Santo André
+426,Campestre,128,Santo André
+427,Utinga,128,Santo André
+428,Vila Lucinda,128,Santo André
+429,Parque Oratório,128,Santo André
+430,Parque das Nações,128,Santo André
+431,Jardim do Estádio,128,Santo André
+432,Carijós,128,Santo André
+433,Parque do Pedroso,128,Santo André
+434,Paranapiacaba,128,Santo André
+435,Capuava,118,Mauá
+436,Mauá,118,Mauá
+437,Jardim Zaíra,118,Mauá
+438,Barão de Mauá,118,Mauá
+439,Estrada do Carneiro,118,Mauá
+440,Ribeirão Pires,123,Ribeirão Pires
+441,Jardim Santa Luzia,123,Ribeirão Pires
+442,Ouro Fino Paulista,123,Ribeirão Pires
+443,Parque Sete Pontes,124,Rio Grande da Serra
+444,Rio Grande da Serra,124,Rio Grande da Serra
+445,Planalto,129,São Bernardo do Campo
+446,Paulicéia,129,São Bernardo do Campo
+447,Rudge Ramos,129,São Bernardo do Campo
+448,Baeta Neves,129,São Bernardo do Campo
+449,São Bernardo do Campo,129,São Bernardo do Campo
+450,Montanhão,129,São Bernardo do Campo
+451,Demarchi,129,São Bernardo do Campo
+452,Riacho Grande,129,São Bernardo do Campo
+453,Caminho do Mar,129,São Bernardo do Campo
+454,Reservatório Billings,129,São Bernardo do Campo
+455,Diadema,104,Diadema
+456,Jardim das Nações,104,Diadema
+457,Piraporinha,104,Diadema
+458,Vila Conceição,104,Diadema
+459,Eldorado,104,Diadema
+460,Taboão da Serra,133,Taboão da Serra
+461,Jardim Irapuã,133,Taboão da Serra
+462,Parque Pinheiros,133,Taboão da Serra
+463,Parque Industrial,133,Taboão da Serra
+464,Santo Eduardo,105,Embu das Artes
+465,São Marcos,105,Embu das Artes
+466,Embu das Artes,105,Embu das Artes
+467,Ressaca,105,Embu das Artes
+468,Itapecerica da Serra,112,Itapecerica da Serra
+469,Jardim Petrópolis,112,Itapecerica da Serra
+470,Embu-Mirim,112,Itapecerica da Serra
+471,São Lourenço da Serra,131,São Lourenço da Serra
+472,Embu-Guaçu,106,Embu-Guaçu
+473,Cipó,106,Embu-Guaçu
+474,Santa Rita,106,Embu-Guaçu
+475,Juquitiba,116,Juquitiba
+476,Barueri,98,Barueri
+477,Aphaville,98,Barueri
+478,Tamboré,98,Barueri
+479,Antônio João,98,Barueri
+480,Vutopoca,98,Barueri
+481,Jardim Silveira,98,Barueri
+482,Jardim Belval,98,Barueri
+483,Morada dos Lagos,98,Barueri
+484,Cidade Ariston,102,Carapicuíba
+485,Carapicuíba,102,Carapicuíba
+486,Jardim Planalto,102,Carapicuíba
+487,Aldeia de Carapicuíba,102,Carapicuíba
+488,Estrada do Jacarandá,102,Carapicuíba
+489,Osasco,120,Osasco
+490,Vila Yara,120,Osasco
+491,Bussocaba City,120,Osasco
+492,Nova Granada,120,Osasco
+493,Recanto das Rosas,120,Osasco
+494,Jardim Novo Osasco,120,Osasco
+495,Jardim Veloso,120,Osasco
+496,Quitaúna,120,Osasco
+497,Jardim Piratininga,120,Osasco
+498,Presidente Altino,120,Osasco
+499,Munhoz Junior,120,Osasco
+500,Rochdale,120,Osasco
+501,Mutinga,120,Osasco
+502,Três Montanhas,120,Osasco
+503,Ribeirão Itaqui,115,Jandira
+504,Jandira,115,Jandira
+505,Ribeirão das Pombas,115,Jandira
+506,Granja Viana,103,Cotia
+507,Fernando Nobre,103,Cotia
+508,Cotia,103,Cotia
+509,Capueira,103,Cotia
+510,Caucaia,103,Cotia
+511,Caucaia do Alto,103,Cotia
+512,Vargem Grande Paulista,134,Vargem Grande Paulista
+513,Quatro Encruzilhadas,113,Itapevi
+514,Itapevi,113,Itapevi
+515,Amador Bueno,113,Itapevi
+516,Santana de Parnaíba,127,Santana de Parnaíba
+517,Pirapora do Bom Jesus,121,Pirapora do Bom Jesus
