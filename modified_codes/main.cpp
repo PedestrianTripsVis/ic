@@ -799,3 +799,40 @@ void buildGUI(int mainWin)
 
 	glui->set_main_gfx_window(mainWin);										//Link GLUI with GLUT (seems needed)
 }
+
+
+int saveConfigs() {
+	FILE *fp = fopen("savefile.dat", "wb");
+
+	if (!fp) {
+		printf("Couldn't open file: %s\n", "savefile.dat");
+		return false;
+	}
+	
+	fwrite(&relaxation,sizeof(float), 1, fp);		
+	fwrite(&max_displacement,sizeof(float), 1, fp);       
+	fwrite(&displ_rel_edgelength,sizeof(int), 1, fp);         
+	fwrite(&shading_radius,sizeof(float), 1, fp);		
+	fwrite(&show_points,sizeof(int), 1, fp);			
+	fwrite(&show_edges,sizeof(int), 1, fp);			
+	fwrite(&show_endpoints,sizeof(int), 1, fp);			
+	fwrite(&gpu_bundling,sizeof(int), 1, fp);			
+	fwrite(&auto_update,sizeof(int), 1, fp);         
+	fwrite(&density_estimation,sizeof(int), 1, fp);			
+	fwrite(&color_mode,sizeof(int), 1, fp);			
+	fwrite(&alpha_mode,sizeof(int), 1, fp);			
+	fwrite(&polyline_style,sizeof(int), 1, fp);			
+	fwrite(&bundle_shape,sizeof(int), 1, fp);			
+	fwrite(&tangent,sizeof(int), 1, fp);			
+	fwrite(&block_endpoints,sizeof(int), 1, fp);			
+	fwrite(&use_density_alpha,sizeof(int), 1, fp);			
+	fwrite(&shading,sizeof(int), 1, fp);			
+	fwrite(&shading_tube,sizeof(int), 1, fp);			
+	fwrite(&dir_separation,sizeof(float), 1, fp);		
+	fwrite(&draw_background,sizeof(int), 1, fp);			
+	fwrite(&draw_rails,sizeof(int), 1, fp);			
+	fwrite(&draw_png,sizeof(int), 1, fp); 	
+
+	fclose(fp);
+	return true; 	
+}
