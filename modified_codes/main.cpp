@@ -1,7 +1,6 @@
 #include <GL/glew.h>
 
 #include "include/cpubundling.h"
-#include "include/pngdrawing.h"
 #include "include/gdrawing.h"
 #include "include/glutwrapper.h"
 #include "include/gluiwrapper.h"
@@ -12,6 +11,7 @@
 #include <iostream>
 #include <string>
 #include <time.h>
+#include <variant>
 #define DBG(x) std::cout << #x << ": " <<  x << endl
 
 #define TIME(call)   \
@@ -135,6 +135,7 @@ void postprocess();
 void PPMWriter(unsigned char *in, char *name, int dimx, int dimy);
 void saveImage(int width, int height);
 void save_screenshot();
+int saveFile(const char *mode);
 
 void save_screenshot() {
   	int width = glutGet(GLUT_WINDOW_WIDTH);
@@ -190,6 +191,7 @@ int main(int argc,char **argv)
 	char* basemapfile = 0;
 	fboSize   = 512;
 	bool only_endpoints = false;
+	bool savefile = false;
 	int  max_edges = 0;
 
 	for (int ar=1;ar<argc;++ar)
@@ -214,14 +216,18 @@ int main(int argc,char **argv)
 			++ar;
 			max_edges = atoi(argv[ar]);
 		}
-    	else if(opt=="-m")
+    	else if (opt=="-m")
     	{
      		++ar;
       		mapfile = argv[ar];
     	}
-		else if(opt=="-bm") {
+		else if (opt=="-bm") {
 			++ar;
 			basemapfile = argv[ar];
+		}
+		else if (opt=="-s") {
+			++ar;
+			savefile = true;
 		}
 
 	}
@@ -278,6 +284,8 @@ int main(int argc,char **argv)
 
     *gdrawing_final = *gdrawing_bund;                           //This ensures that all drawing options will work, even if we don't bundle anything next.
 
+	if (savefile) saveFile("r");
+
     glutPostRedisplay();
     glutDisplayFunc(display_cb);
 
@@ -285,11 +293,11 @@ int main(int argc,char **argv)
 
 	glutMainLoop();
 
-
 	delete gdrawing_bund;
 	delete gdrawing_orig;
 	delete gdrawing_final;
-    return 0;
+    return 0;	
+
 }
 
 
@@ -526,6 +534,7 @@ void control_cb(int ctrl)
     case UI_SAVE:
         gdrawing_final->saveTrails(save_filename,true);
         cout<<"Bundled data saved to file: "<<save_filename<<endl;
+		if (saveFile("w")) cout<<"Configs saved to file: "<< "savefile.dat"<< endl;
         break;
 	case UI_QUIT:
 		exit(0);
@@ -800,39 +809,99 @@ void buildGUI(int mainWin)
 	glui->set_main_gfx_window(mainWin);										//Link GLUI with GLUT (seems needed)
 }
 
-
-int saveConfigs() {
-	FILE *fp = fopen("savefile.dat", "wb");
+int saveFile(const char *mode) {
+	FILE *fp = fopen("savefile.dat", mode);
 
 	if (!fp) {
-		printf("Couldn't open file: %s\n", "savefile.dat");
+		printf("saveFile Error: Erro ao abrir o arquivo de configurações.\n");
 		return false;
 	}
+
+	if (strcmp("r", mode) == 0) {
+		if (fread(&bund->niter, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&bund->h, sizeof(float), 1, fp) != 1) return false; 
+    	if (fread(&bund->lambda, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&bund->liter, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&block_endpoints, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&bund->niter_ms, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&bund->h_ms, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&bund->lambda_ends, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&bund->spl, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&bund->eps, sizeof(float), 1, fp) != 1) return false; 
+    	if (fread(&bund->rep_strength, sizeof(float), 1, fp) != 1) return false; 
+    	if (fread(&relaxation, sizeof(float), 1, fp) != 1) return false; 
+    	if (fread(&max_displacement, sizeof(float), 1, fp) != 1) return false; 
+    	if (fread(&displ_rel_edgelength, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&polyline_style, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&tangent, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&gpu_bundling, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&auto_update, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&density_estimation, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&bundle_shape, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&show_edges, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&show_points, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&show_endpoints, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&draw_background, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&draw_rails, sizeof(int), 1, fp) != 1) return false; 
+    	if (fread(&draw_png, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&gdrawing_orig->line_width, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&gdrawing_orig->global_alpha, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&shading_radius, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&gdrawing_orig->amb_factor, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&gdrawing_orig->diff_factor, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&gdrawing_orig->spec_factor, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&gdrawing_orig->spec_highlight_size, sizeof(float), 1, fp) != 1) return false; 
+		if (fread(&use_density_alpha, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&shading, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&shading_tube, sizeof(int), 1, fp) != 1) return false; 
+		if (fread(&dir_separation, sizeof(float), 1, fp) != 1) return false; 	
 	
-	fwrite(&relaxation,sizeof(float), 1, fp);		
-	fwrite(&max_displacement,sizeof(float), 1, fp);       
-	fwrite(&displ_rel_edgelength,sizeof(int), 1, fp);         
-	fwrite(&shading_radius,sizeof(float), 1, fp);		
-	fwrite(&show_points,sizeof(int), 1, fp);			
-	fwrite(&show_edges,sizeof(int), 1, fp);			
-	fwrite(&show_endpoints,sizeof(int), 1, fp);			
-	fwrite(&gpu_bundling,sizeof(int), 1, fp);			
-	fwrite(&auto_update,sizeof(int), 1, fp);         
-	fwrite(&density_estimation,sizeof(int), 1, fp);			
-	fwrite(&color_mode,sizeof(int), 1, fp);			
-	fwrite(&alpha_mode,sizeof(int), 1, fp);			
-	fwrite(&polyline_style,sizeof(int), 1, fp);			
-	fwrite(&bundle_shape,sizeof(int), 1, fp);			
-	fwrite(&tangent,sizeof(int), 1, fp);			
-	fwrite(&block_endpoints,sizeof(int), 1, fp);			
-	fwrite(&use_density_alpha,sizeof(int), 1, fp);			
-	fwrite(&shading,sizeof(int), 1, fp);			
-	fwrite(&shading_tube,sizeof(int), 1, fp);			
-	fwrite(&dir_separation,sizeof(float), 1, fp);		
-	fwrite(&draw_background,sizeof(int), 1, fp);			
-	fwrite(&draw_rails,sizeof(int), 1, fp);			
-	fwrite(&draw_png,sizeof(int), 1, fp); 	
+	} else if(strcmp("w", mode) == 0) {
+		if (fwrite(&bund->niter, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&bund->h, sizeof(float), 1, fp) != 1) return false; 
+    	if (fwrite(&bund->lambda, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&bund->liter, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&block_endpoints, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&bund->niter_ms, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&bund->h_ms, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&bund->lambda_ends, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&bund->spl, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&bund->eps, sizeof(float), 1, fp) != 1) return false; 
+    	if (fwrite(&bund->rep_strength, sizeof(float), 1, fp) != 1) return false; 
+    	if (fwrite(&relaxation, sizeof(float), 1, fp) != 1) return false; 
+    	if (fwrite(&max_displacement, sizeof(float), 1, fp) != 1) return false; 
+    	if (fwrite(&displ_rel_edgelength, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&polyline_style, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&tangent, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&gpu_bundling, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&auto_update, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&density_estimation, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&bundle_shape, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&show_edges, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&show_points, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&show_endpoints, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&draw_background, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&draw_rails, sizeof(int), 1, fp) != 1) return false; 
+    	if (fwrite(&draw_png, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&gdrawing_orig->line_width, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&gdrawing_orig->global_alpha, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&shading_radius, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&gdrawing_orig->amb_factor, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&gdrawing_orig->diff_factor, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&gdrawing_orig->spec_factor, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&gdrawing_orig->spec_highlight_size, sizeof(float), 1, fp) != 1) return false; 
+		if (fwrite(&use_density_alpha, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&shading, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&shading_tube, sizeof(int), 1, fp) != 1) return false; 
+		if (fwrite(&dir_separation, sizeof(float), 1, fp) != 1) return false; 	
+	
+	} else {
+		printf("saveFile Error: Operação não suportada.\n");
+		return false;
+	}
+
+
 
 	fclose(fp);
-	return true; 	
+	return true;
 }
